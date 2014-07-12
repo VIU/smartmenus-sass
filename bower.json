@@ -1,0 +1,6 @@
+{
+  "name": "smartmenus-sass",
+  "dependencies": {
+    "jquery": "1.11.*"
+  }
+}
