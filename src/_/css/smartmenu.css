@@ -112,50 +112,57 @@ ul.sm {
 ---------------------------------------------------------------*/
 /* Menu box
 ===================*/
-/* line 13, ../components/sass/_simple.scss */
-.sm-simple,
-.sm-simple ul {
+/* line 11, ../components/sass/_simple.scss */
+.sm-simple {
   border: 1px solid #bbb;
   background: #fff;
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+  /* line 17, ../components/sass/_simple.scss */
+  .sm-simple ul {
+    border: 1px solid #bbb;
+    background: #fff;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+  /* line 24, ../components/sass/_simple.scss */
+  .sm-simple a {
+    padding: 11px 20px;
+    color: #555;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: 'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Arial,sans-serif;
+    text-decoration: none; }
+    /* line 31, ../components/sass/_simple.scss */
+    .sm-simple a:hover, .sm-simple a:focus, .sm-simple a:active, .sm-simple a.highlighted {
+      background: #eee;
+      color: #555; }
+    /* line 35, ../components/sass/_simple.scss */
+    .sm-simple a.current {
+      background: #555;
+      color: #fff; }
+      /* line 38, ../components/sass/_simple.scss */
+      .sm-simple a.current:hover, .sm-simple a.current:focus, .sm-simple a.current:active {
+        background: #555;
+        color: #fff; }
+    /* line 43, ../components/sass/_simple.scss */
+    .sm-simple a.has-submenu {
+      padding-right: 32px; }
+  /* line 47, ../components/sass/_simple.scss */
+  .sm-simple ul a.has-submenu {
+    padding-right: 23px; }
 
 /* Menu items
 ===================*/
-/* line 25, ../components/sass/_simple.scss */
-.sm-simple a {
-  padding: 11px 20px;
-  color: #555;
-  font-size: 14px;
-  line-height: 17px;
-  font-family: 'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Arial,sans-serif;
-  text-decoration: none; }
-
-/* line 34, ../components/sass/_simple.scss */
-.sm-simple a:hover, .sm-simple a:focus, .sm-simple a:active,
-.sm-simple a.highlighted {
-  background: #eee;
-  color: #555; }
-
 /* current items - add the class manually to some item or check the "markCurrentItem" script option */
-/* line 39, ../components/sass/_simple.scss */
-.sm-simple a.current, .sm-simple a.current:hover, .sm-simple a.current:focus, .sm-simple a.current:active {
-  background: #555;
-  color: #fff; }
-
-/* line 43, ../components/sass/_simple.scss */
-.sm-simple a.has-submenu {
-  padding-right: 32px; }
-
-/* line 47, ../components/sass/_simple.scss */
-.sm-simple ul a.has-submenu,
+/* line 57, ../components/sass/_simple.scss */
 .sm-simple-vertical a.has-submenu {
   padding-right: 23px; }
 
 /* Sub menu indicators
 ===================*/
-/* line 55, ../components/sass/_simple.scss */
+/* line 65, ../components/sass/_simple.scss */
 .sm-simple a span.sub-arrow {
   position: absolute;
   right: 12px;
@@ -164,37 +171,41 @@ ul.sm {
   width: 16px;
   height: 16px;
   line-height: 16px; }
+/* line 74, ../components/sass/_simple.scss */
+.sm-simple ul a span.sub-arrow {
+  right: auto;
+  margin-left: -14px; }
 
-/* line 65, ../components/sass/_simple.scss */
-.sm-simple ul a span.sub-arrow,
+/* line 80, ../components/sass/_simple.scss */
 .sm-simple-vertical a span.sub-arrow {
   right: auto;
   margin-left: -14px; }
 
 /* Items separators
 ===================*/
-/* line 74, ../components/sass/_simple.scss */
+/* line 89, ../components/sass/_simple.scss */
 .sm-simple li {
   border-left: 1px solid #f3f3f3; }
+  /* line 91, ../components/sass/_simple.scss */
+  .sm-simple li:first-child {
+    border-left: 0; }
+/* line 95, ../components/sass/_simple.scss */
+.sm-simple ul li {
+  border-left: 0;
+  border-top: 1px solid #f3f3f3; }
 
-/* line 77, ../components/sass/_simple.scss */
-.sm-simple li:first-child {
-  border-left: 0; }
-
-/* line 81, ../components/sass/_simple.scss */
-.sm-simple ul li,
+/* line 101, ../components/sass/_simple.scss */
 .sm-simple-vertical li {
   border-left: 0;
   border-top: 1px solid #f3f3f3; }
 
-/* line 86, ../components/sass/_simple.scss */
-.sm-simple ul li:first-child,
-.sm-simple-vertical li:first-child {
+/* line 106, ../components/sass/_simple.scss */
+.sm-simple ul li:first-child, .sm-simple-vertical li:first-child {
   border-top: 0; }
 
 /* Scrolling arrows containers for tall sub menus - test sub menu: "Sub test" -> "more..." -> "more..." in the default download package
 ===================*/
-/* line 94, ../components/sass/_simple.scss */
+/* line 114, ../components/sass/_simple.scss */
 .sm-simple span.scroll-up, .sm-simple span.scroll-down {
   position: absolute;
   display: none;
@@ -205,9 +216,8 @@ ul.sm {
   background: #fff;
   height: 20px;
   /* width and position will be automatically set by the script */ }
-
-/* line 105, ../components/sass/_simple.scss */
-.sm-simple span.scroll-up-arrow, .sm-simple span.scroll-down-arrow {
+/* line 125, ../components/sass/_simple.scss */
+.sm-simple span.scroll-up-arrow {
   position: absolute;
   top: -2px;
   left: 50%;
@@ -220,9 +230,20 @@ ul.sm {
   /* tweak size of the arrow */
   border-style: dashed dashed solid dashed;
   border-color: transparent transparent #555 transparent; }
-
-/* line 118, ../components/sass/_simple.scss */
+/* line 139, ../components/sass/_simple.scss */
 .sm-simple span.scroll-down-arrow {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  margin-left: -8px;
+  /* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 8px;
+  /* tweak size of the arrow */
+  border-style: dashed dashed solid dashed;
+  border-color: transparent transparent #555 transparent;
   top: 6px;
   border-style: solid dashed dashed dashed;
   border-color: #555 transparent transparent transparent; }
@@ -234,33 +255,32 @@ ul.sm {
 ---------------------------------------------------------------*/
 @media screen and (max-width: 640px) {
   /* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
-  /* line 135, ../components/sass/_simple.scss */
+  /* line 166, ../components/sass/_simple.scss */
   ul.sm-simple {
     width: auto !important; }
-
-  /* line 136, ../components/sass/_simple.scss */
-  ul.sm-simple ul {
-    display: none;
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    margin-left: 0 !important;
-    margin-top: 0 !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important; }
-
-  /* line 137, ../components/sass/_simple.scss */
-  ul.sm-simple > li {
-    float: none; }
-
-  /* line 138, ../components/sass/_simple.scss */
-  ul.sm-simple > li > a, ul.sm-simple ul.sm-nowrap > li > a {
-    white-space: normal; }
-
-  /* line 139, ../components/sass/_simple.scss */
-  ul.sm-simple iframe {
-    display: none; }
+    /* line 168, ../components/sass/_simple.scss */
+    ul.sm-simple ul {
+      display: none;
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      margin-left: 0 !important;
+      margin-top: 0 !important;
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: none !important; }
+      /* line 178, ../components/sass/_simple.scss */
+      ul.sm-simple ul.sm-nowrap > li > a {
+        white-space: normal; }
+    /* line 182, ../components/sass/_simple.scss */
+    ul.sm-simple > li {
+      float: none; }
+      /* line 184, ../components/sass/_simple.scss */
+      ul.sm-simple > li > a {
+        white-space: normal; }
+    /* line 188, ../components/sass/_simple.scss */
+    ul.sm-simple iframe {
+      display: none; }
 
   /* Uncomment this rule to disable completely the sub menus for small screen devices */
   /*.sm-simple ul, .sm-simple span.sub-arrow, .sm-simple iframe {
@@ -268,7 +288,7 @@ ul.sm {
   }*/
   /* Menu box
   ===================*/
-  /* line 150, ../components/sass/_simple.scss */
+  /* line 199, ../components/sass/_simple.scss */
   .sm-simple ul {
     border: 0;
     /* darken the background of the sub menus */
@@ -276,65 +296,54 @@ ul.sm {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none; }
-
-  /* Menu items
-  ===================*/
-  /* line 163, ../components/sass/_simple.scss */
+  /* line 207, ../components/sass/_simple.scss */
   .sm-simple a {
     padding-top: 13px;
     padding-bottom: 13px;
     background: transparent !important;
     color: #555 !important; }
-
-  /* line 169, ../components/sass/_simple.scss */
-  .sm-simple a.current {
-    background: #555 !important;
-    color: #fff !important; }
-
-  /* line 173, ../components/sass/_simple.scss */
-  .sm-simple a.has-submenu {
-    padding-right: 23px; }
-
-  /* add some text indentation for the 2+ level sub menu items */
-  /* line 177, ../components/sass/_simple.scss */
+    /* line 212, ../components/sass/_simple.scss */
+    .sm-simple a.current {
+      background: #555 !important;
+      color: #fff !important; }
+    /* line 216, ../components/sass/_simple.scss */
+    .sm-simple a.has-submenu {
+      padding-right: 23px; }
+  /* line 221, ../components/sass/_simple.scss */
   .sm-simple ul a {
     border-left: 8px solid transparent; }
-
-  /* line 180, ../components/sass/_simple.scss */
+  /* line 225, ../components/sass/_simple.scss */
   .sm-simple ul ul a {
     border-left: 16px solid transparent; }
-
-  /* line 183, ../components/sass/_simple.scss */
+  /* line 229, ../components/sass/_simple.scss */
   .sm-simple ul ul ul a {
     border-left: 24px solid transparent; }
-
-  /* line 186, ../components/sass/_simple.scss */
+  /* line 233, ../components/sass/_simple.scss */
   .sm-simple ul ul ul ul a {
     border-left: 32px solid transparent; }
-
-  /* line 189, ../components/sass/_simple.scss */
+  /* line 236, ../components/sass/_simple.scss */
   .sm-simple ul ul ul ul ul a {
     border-left: 40px solid transparent; }
-
-  /* Sub menu indicators
-  ===================*/
-  /* line 197, ../components/sass/_simple.scss */
+  /* line 244, ../components/sass/_simple.scss */
   .sm-simple a span.sub-arrow {
     right: auto;
     margin-left: -14px; }
-
-  /* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
-  /* line 202, ../components/sass/_simple.scss */
+  /* line 248, ../components/sass/_simple.scss */
   .sm-simple a.highlighted span.sub-arrow {
     display: none !important; }
-
-  /* Items separators
-  ===================*/
-  /* line 210, ../components/sass/_simple.scss */
+  /* line 252, ../components/sass/_simple.scss */
   .sm-simple li {
     border-left: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important; }
+    /* line 255, ../components/sass/_simple.scss */
+    .sm-simple li:first-child {
+      border-top: 0 !important; }
 
-  /* line 214, ../components/sass/_simple.scss */
-  .sm-simple li:first-child {
-    border-top: 0 !important; } }
+  /* Menu items
+  ===================*/
+  /* add some text indentation for the 2+ level sub menu items */
+  /* Sub menu indicators
+  ===================*/
+  /* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
+  /* Items separators
+  ===================*/ }
