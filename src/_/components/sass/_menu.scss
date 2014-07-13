@@ -2,23 +2,19 @@
 ---------------------------------------------------------------
   Note that styles you apply to the main menu items are inherited by the sub menus items too.
   If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example:
-  .sm-simple > li > a { ... } instead of .sm-simple a { ... }
+  .sm-menu > li > a { ... } instead of .sm-menu a { ... }
 ---------------------------------------------------------------*/
 
 /* Menu box
 ===================*/
 
-.sm-simple {
-  border: 1px solid #bbb;
-  background: #fff;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+.sm-menu {
+  border: 1px solid $border-color;
+  background: $background-color;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   ul {
     border: 1px solid #bbb;
     background: #fff;
-    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   }
   a {
@@ -54,14 +50,14 @@
 
 /* current items - add the class manually to some item or check the "markCurrentItem" script option */
 
-.sm-simple-vertical a.has-submenu {
+.sm-menu-vertical a.has-submenu {
   padding-right: 23px;
 }
 
 /* Sub menu indicators
 ===================*/
 
-.sm-simple {
+.sm-menu {
   a span.sub-arrow {
     position: absolute;
     right: 12px;
@@ -77,7 +73,7 @@
   }
 }
 
-.sm-simple-vertical a span.sub-arrow {
+.sm-menu-vertical a span.sub-arrow {
   right: auto;
   margin-left: -14px;
 }
@@ -85,7 +81,7 @@
 /* Items separators
 ===================*/
 
-.sm-simple {
+.sm-menu {
   li {
     border-left: 1px solid #f3f3f3;
     &:first-child {
@@ -98,19 +94,19 @@
   }
 }
 
-.sm-simple-vertical li {
+.sm-menu-vertical li {
   border-left: 0;
   border-top: 1px solid #f3f3f3;
 }
 
-.sm-simple ul li:first-child, .sm-simple-vertical li:first-child {
+.sm-menu ul li:first-child, .sm-menu-vertical li:first-child {
   border-top: 0;
 }
 
 /* Scrolling arrows containers for tall sub menus - test sub menu: "Sub test" -> "more..." -> "more..." in the default download package
 ===================*/
 
-.sm-simple span {
+.sm-menu span {
   &.scroll-up, &.scroll-down {
     position: absolute;
     display: none;
@@ -163,7 +159,7 @@
 
 @media screen and (max-width: 640px) {
   /* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
-  ul.sm-simple {
+  ul.sm-menu {
     width: auto !important;
     ul {
       display: none;
@@ -190,12 +186,12 @@
     }
   }
   /* Uncomment this rule to disable completely the sub menus for small screen devices */
-  /*.sm-simple ul, .sm-simple span.sub-arrow, .sm-simple iframe {
+  /*.sm-menu ul, .sm-menu span.sub-arrow, .sm-menu iframe {
   	display:none !important;
   }*/
   /* Menu box
   ===================*/
-  .sm-simple {
+  .sm-menu {
     ul {
       border: 0;
       /* darken the background of the sub menus */
