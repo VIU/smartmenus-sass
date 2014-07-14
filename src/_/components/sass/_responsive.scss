@@ -1,0 +1,119 @@
+
+/*
+---------------------------------------------------------------
+  Responsiveness
+  These will make the sub menus collapsible when the screen width is too small.
+---------------------------------------------------------------*/
+
+@media screen and (max-width: $responsive-max-width) {
+  // The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) 
+  ul.sm-menu {
+    width: auto !important;
+    ul {
+      display: none;
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      margin-left: 0 !important;
+      margin-top: 0 !important;
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      &.sm-nowrap > li > a {
+        white-space: normal;
+      }
+    }
+    > li {
+      float: none;
+      > a {
+        white-space: normal;
+      }
+    }
+    iframe {
+      display: none;
+    }
+  }
+
+  // hide the responsive submenus
+  @if $responsive-hide-submenus {
+     .sm-menu ul, .sm-menu span.sub-arrow, .sm-menu iframe {
+     	  display:none !important;
+      }
+  }
+
+  /* Menu box
+  ===================*/
+  .sm-menu {
+    ul {
+      border: 0;
+      // darken the background of the sub menus 
+      background: darken($menu-background-color, 5%);
+      @include prefixer(box-shadow, none, webkit moz o spec);
+      a span-sub-arrow {
+        border-color: transparent transparent transparent $submenu-arrow-color ;
+        border-style: dashed dashed dashed solid;
+        bottom: auto;
+        left: auto;
+        margin-left: 0;
+        margin-top: $submenu-arrow-size * -1;
+        right: 15px;
+        top: 50%;
+      }
+    }
+    a {
+      padding-top: 13px;
+      padding-bottom: 13px;
+      background: transparent !important;
+      color: $hover-color !important;
+      &.current {
+        background: $hover-color !important;
+        color: $active-color !important;
+      }
+      &.has-submenu {
+        padding-right: 23px;
+      }
+    }
+
+    // responsive submenu intent
+    ul {
+      a {
+        border-left: $responsive-submenu-intent solid transparent;
+      }
+      ul {
+        a {
+          border-left: $responsive-submenu-intent*2 solid transparent;
+        }
+        ul {
+          a {
+            border-left: $responsive-submenu-intent*3 solid transparent;
+          }
+          ul {
+            a {
+              border-left: $responsive-submenu-intent*4 solid transparent;
+            }
+            ul a {
+              border-left: $responsive-submenu-intent*5 solid transparent;
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      span.sub-arrow {
+        right: auto;
+        margin-left: -14px;
+      }
+      &.highlighted span.sub-arrow {
+        display: none !important;
+      }
+    }
+    li {
+      border-left: 0;
+      border-top: 1px solid $menu-border-color  !important;
+      &:first-child {
+        border-top: 0 !important;
+      }
+    }
+  }
+}

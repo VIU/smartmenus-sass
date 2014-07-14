@@ -1,0 +1,36 @@
+/*
+---------------------------------------------------------------
+  Vertical Menu 
+ use sm-menu-vertical class for verticial menus
+---------------------------------------------------------------*/
+.sm-menu-vertical {
+  a span.sub-arrow {
+    border-color: transparent transparent transparent $submenu-arrow-color;
+    border-style: dashed dashed dashed solid;
+    bottom: auto;
+    left: auto;
+    margin-left: 0;
+    margin-top: -5px;
+    right: 15px;
+    top: 50%;
+  }
+  li {
+    border-left: 0;
+    border-top: 1px solid $item-separator-color;
+  }
+  a.has-submenu {
+    padding-right: 23px;
+  }
+}
+
+.sm-menu-vertical a span.sub-arrow, 
+.sm-menu ul a span.sub-arrow {
+    border-color: transparent transparent transparent $submenu-arrow-color;
+    border-style: dashed dashed dashed solid;
+    bottom: auto;
+    left: auto;
+    margin-left: 0;
+    margin-top: -5px;
+    right: 15px;
+    top: 50%;
+}
