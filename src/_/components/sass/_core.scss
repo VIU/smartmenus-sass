@@ -102,13 +102,9 @@ ul.sm {
 
 ul.sm {
   li * {
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
+    @include box-sizing(content-box);
     &:before, &:after {
-      -moz-box-sizing: content-box;
-      -webkit-box-sizing: content-box;
-      box-sizing: content-box;
+      @include box-sizing(content-box);
     }
   }
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

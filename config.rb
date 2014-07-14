@@ -1,3 +1,4 @@
+require 'bourbon'
 css_dir = 'src/_/css'
 sass_dir = 'src/_/components/sass'
 javascripts_dir = 'src/_/js'

@@ -1,39 +1,29 @@
-/*
----------------------------------------------------------------
-  Note that styles you apply to the main menu items are inherited by the sub menus items too.
-  If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example:
-  .sm-menu > li > a { ... } instead of .sm-menu a { ... }
----------------------------------------------------------------*/
-
-/* Menu box
-===================*/
-
 .sm-menu {
-  border: 1px solid $border-color;
-  background: $background-color;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border: $menu-border-width solid $menu-border-color;
+  background: $menu-background-color;
+  @include prefixer(box-shadow, $menu-box-shadow, webkit moz o spec);
   ul {
-    border: 1px solid #bbb;
-    background: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    border: $menu-border-width solid $menu-border-color;
+    background: $menu-background-color;
+    @include prefixer(box-shadow, $menu-box-shadow, webkit moz o spec);
   }
   a {
-    padding: 11px 20px;
-    color: #555;
-    font-size: 14px;
-    line-height: 17px;
-    font-family: 'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Arial,sans-serif;
+    padding: $menu-link-padding-top  $menu-link-padding-side;
+    color:  $menu-font-color;
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $menu-font-family;
     text-decoration: none;
     &:hover, &:focus, &:active, &.highlighted {
-      background: #eee;
-      color: #555;
+      background: $hover-background-color;
+      color: $hover-color;
     }
     &.current {
-      background: #555;
-      color: #fff;
+      background: $hover-color;
+      color: $menu-background-color ;
       &:hover, &:focus, &:active {
-        background: #555;
-        color: #fff;
+        background: $hover-color;
+        color: $menu-background-color ;
       }
     }
     &.has-submenu {
@@ -43,222 +33,39 @@
   ul a.has-submenu {
     padding-right: 23px;
   }
-}
 
-/* Menu items
-===================*/
 
-/* current items - add the class manually to some item or check the "markCurrentItem" script option */
-
-.sm-menu-vertical a.has-submenu {
-  padding-right: 23px;
-}
-
-/* Sub menu indicators
-===================*/
-
-.sm-menu {
+  // sub menu indicators
   a span.sub-arrow {
+    border-color: $submenu-arrow-color transparent transparent;
+    border-style: solid dashed dashed;
     position: absolute;
-    right: 12px;
-    top: 50%;
-    margin-top: -8px;
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
+    width: 0;
+    height: 0;
+    overflow:hidden;
+    @include arrow-size(5px);
+
   }
   ul a span.sub-arrow {
     right: auto;
     margin-left: -14px;
   }
-}
 
-.sm-menu-vertical a span.sub-arrow {
-  right: auto;
-  margin-left: -14px;
-}
 
-/* Items separators
-===================*/
-
-.sm-menu {
+  // item separators
   li {
-    border-left: 1px solid #f3f3f3;
+    border-left: 1px solid $item-separator-color;
     &:first-child {
       border-left: 0;
     }
   }
   ul li {
     border-left: 0;
-    border-top: 1px solid #f3f3f3;
+    border-top: 1px solid $item-separator-color;
   }
+  ul li:first-child, .sm-menu-vertical li:first-child {
+    border-top: 0;
+  }
+  @import "scrolling";
 }
 
-.sm-menu-vertical li {
-  border-left: 0;
-  border-top: 1px solid #f3f3f3;
-}
-
-.sm-menu ul li:first-child, .sm-menu-vertical li:first-child {
-  border-top: 0;
-}
-
-/* Scrolling arrows containers for tall sub menus - test sub menu: "Sub test" -> "more..." -> "more..." in the default download package
-===================*/
-
-.sm-menu span {
-  &.scroll-up, &.scroll-down {
-    position: absolute;
-    display: none;
-    visibility: hidden;
-    overflow: hidden;
-    border: solid #bbb;
-    border-width: 1px 0;
-    background: #fff;
-    height: 20px;
-    /* width and position will be automatically set by the script */
-  }
-  &.scroll-up-arrow {
-    position: absolute;
-    top: -2px;
-    left: 50%;
-    margin-left: -8px;
-    /* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    border-width: 8px;
-    /* tweak size of the arrow */
-    border-style: dashed dashed solid dashed;
-    border-color: transparent transparent #555 transparent;
-  }
-  &.scroll-down-arrow {
-    position: absolute;
-    top: -2px;
-    left: 50%;
-    margin-left: -8px;
-    /* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    border-width: 8px;
-    /* tweak size of the arrow */
-    border-style: dashed dashed solid dashed;
-    border-color: transparent transparent #555 transparent;
-    top: 6px;
-    border-style: solid dashed dashed dashed;
-    border-color: #555 transparent transparent transparent;
-  }
-}
-
-/*
----------------------------------------------------------------
-  Responsiveness
-  These will make the sub menus collapsible when the screen width is too small.
----------------------------------------------------------------*/
-
-@media screen and (max-width: 640px) {
-  /* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
-  ul.sm-menu {
-    width: auto !important;
-    ul {
-      display: none;
-      position: static !important;
-      top: auto !important;
-      left: auto !important;
-      margin-left: 0 !important;
-      margin-top: 0 !important;
-      width: auto !important;
-      min-width: 0 !important;
-      max-width: none !important;
-      &.sm-nowrap > li > a {
-        white-space: normal;
-      }
-    }
-    > li {
-      float: none;
-      > a {
-        white-space: normal;
-      }
-    }
-    iframe {
-      display: none;
-    }
-  }
-  /* Uncomment this rule to disable completely the sub menus for small screen devices */
-  /*.sm-menu ul, .sm-menu span.sub-arrow, .sm-menu iframe {
-  	display:none !important;
-  }*/
-  /* Menu box
-  ===================*/
-  .sm-menu {
-    ul {
-      border: 0;
-      /* darken the background of the sub menus */
-      background: rgba(100, 100, 100, 0.1);
-      -moz-box-shadow: none;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-    }
-    a {
-      padding-top: 13px;
-      padding-bottom: 13px;
-      background: transparent !important;
-      color: #555 !important;
-      &.current {
-        background: #555 !important;
-        color: #fff !important;
-      }
-      &.has-submenu {
-        padding-right: 23px;
-      }
-    }
-    ul {
-      a {
-        border-left: 8px solid transparent;
-      }
-      ul {
-        a {
-          border-left: 16px solid transparent;
-        }
-        ul {
-          a {
-            border-left: 24px solid transparent;
-          }
-          ul {
-            a {
-              border-left: 32px solid transparent;
-            }
-            ul a {
-              border-left: 40px solid transparent;
-            }
-          }
-        }
-      }
-    }
-    a {
-      span.sub-arrow {
-        right: auto;
-        margin-left: -14px;
-      }
-      &.highlighted span.sub-arrow {
-        display: none !important;
-      }
-    }
-    li {
-      border-left: 0;
-      border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
-      &:first-child {
-        border-top: 0 !important;
-      }
-    }
-  }
-  /* Menu items
-  ===================*/
-  /* add some text indentation for the 2+ level sub menu items */
-  /* Sub menu indicators
-  ===================*/
-  /* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
-  /* Items separators
-  ===================*/
-}

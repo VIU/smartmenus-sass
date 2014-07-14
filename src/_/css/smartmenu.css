@@ -1,21 +1,5 @@
 /* Colors
 ===================*/
-/*
-
-@mixin box-shadow  (	$h-shadow : 0px,
-						$v-shadow : 1px,
-						$blur : 1px,
-						$spread: 1px,
-						$color : 'rgba(0, 0, 0, 0.2)',
-						$inset : '') {
-
-  -o-box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
-  -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
-  -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
-  box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
-}
-
-*/
 /* line 1, ../components/sass/_core.scss */
 .sm {
   display: block;
@@ -109,154 +93,159 @@ ul.sm {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   /* line 104, ../components/sass/_core.scss */
   ul.sm li * {
-    -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
     box-sizing: content-box; }
-    /* line 108, ../components/sass/_core.scss */
+    /* line 106, ../components/sass/_core.scss */
     ul.sm li *:before, ul.sm li *:after {
-      -moz-box-sizing: content-box;
       -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
       box-sizing: content-box; }
+
+/* line 1, ../components/sass/_menu.scss */
+.sm-menu {
+  border: 1px solid #0f5474;
+  background: #1575a1;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none; }
+  /* line 5, ../components/sass/_menu.scss */
+  .sm-menu ul {
+    border: 1px solid #0f5474;
+    background: #1575a1;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none; }
+  /* line 10, ../components/sass/_menu.scss */
+  .sm-menu a {
+    padding: 14px 20px;
+    color: white;
+    font-size: 14px;
+    line-height: 16.8px;
+    font-family: "Lucida Sans Unicode", "Lucida Sans", "Lucida Grande", Arial, sans-serif;
+    text-decoration: none; }
+    /* line 17, ../components/sass/_menu.scss */
+    .sm-menu a:hover, .sm-menu a:focus, .sm-menu a:active, .sm-menu a.highlighted {
+      background: #0f5474;
+      color: #e6e6e6; }
+    /* line 21, ../components/sass/_menu.scss */
+    .sm-menu a.current {
+      background: #e6e6e6;
+      color: #1575a1; }
+      /* line 24, ../components/sass/_menu.scss */
+      .sm-menu a.current:hover, .sm-menu a.current:focus, .sm-menu a.current:active {
+        background: #e6e6e6;
+        color: #1575a1; }
+    /* line 29, ../components/sass/_menu.scss */
+    .sm-menu a.has-submenu {
+      padding-right: 32px; }
+  /* line 33, ../components/sass/_menu.scss */
+  .sm-menu ul a.has-submenu {
+    padding-right: 23px; }
+  /* line 39, ../components/sass/_menu.scss */
+  .sm-menu a span.sub-arrow {
+    border-color: #093347 transparent transparent;
+    border-style: solid dashed dashed;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    right: 11.5px;
+    border-width: 5px;
+    bottom: 14.9px; }
+  /* line 49, ../components/sass/_menu.scss */
+  .sm-menu ul a span.sub-arrow {
+    right: auto;
+    margin-left: -14px; }
+  /* line 56, ../components/sass/_menu.scss */
+  .sm-menu li {
+    border-left: 1px solid #093347; }
+    /* line 58, ../components/sass/_menu.scss */
+    .sm-menu li:first-child {
+      border-left: 0; }
+  /* line 62, ../components/sass/_menu.scss */
+  .sm-menu ul li {
+    border-left: 0;
+    border-top: 1px solid #093347; }
+  /* line 66, ../components/sass/_menu.scss */
+  .sm-menu ul li:first-child, .sm-menu .sm-menu-vertical li:first-child {
+    border-top: 0; }
+  /* line 3, ../components/sass/_scrolling.scss */
+  .sm-menu span.scroll-up, .sm-menu span.scroll-down {
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    overflow: hidden;
+    border: solid #0f5474;
+    border-width: 1px 0;
+    background: #fff;
+    height: 20px;
+    /* width and position will be automatically set by the script */ }
+  /* line 14, ../components/sass/_scrolling.scss */
+  .sm-menu span.scroll-up-arrow {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 8px;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #e6e6e6 transparent; }
+  /* line 28, ../components/sass/_scrolling.scss */
+  .sm-menu span.scroll-down-arrow {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 8px;
+    /* tweak size of the arrow */
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #e6e6e6 transparent;
+    top: 6px;
+    border-style: solid dashed dashed dashed;
+    border-color: #e6e6e6 transparent transparent transparent; }
 
 /*
 ---------------------------------------------------------------
-  Note that styles you apply to the main menu items are inherited by the sub menus items too.
-  If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example:
-  .sm-menu > li > a { ... } instead of .sm-menu a { ... }
+  Vertical Menu 
+ use sm-menu-vertical class for verticial menus
 ---------------------------------------------------------------*/
-/* Menu box
-===================*/
-/* line 11, ../components/sass/_sass.scss */
-.sm-menu {
-  border: 1px solid #bbbbbb;
-  background: white;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
-  /* line 15, ../components/sass/_sass.scss */
-  .sm-menu ul {
-    border: 1px solid #bbb;
-    background: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
-  /* line 20, ../components/sass/_sass.scss */
-  .sm-menu a {
-    padding: 11px 20px;
-    color: #555;
-    font-size: 14px;
-    line-height: 17px;
-    font-family: 'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Arial,sans-serif;
-    text-decoration: none; }
-    /* line 27, ../components/sass/_sass.scss */
-    .sm-menu a:hover, .sm-menu a:focus, .sm-menu a:active, .sm-menu a.highlighted {
-      background: #eee;
-      color: #555; }
-    /* line 31, ../components/sass/_sass.scss */
-    .sm-menu a.current {
-      background: #555;
-      color: #fff; }
-      /* line 34, ../components/sass/_sass.scss */
-      .sm-menu a.current:hover, .sm-menu a.current:focus, .sm-menu a.current:active {
-        background: #555;
-        color: #fff; }
-    /* line 39, ../components/sass/_sass.scss */
-    .sm-menu a.has-submenu {
-      padding-right: 32px; }
-  /* line 43, ../components/sass/_sass.scss */
-  .sm-menu ul a.has-submenu {
-    padding-right: 23px; }
-
-/* Menu items
-===================*/
-/* current items - add the class manually to some item or check the "markCurrentItem" script option */
-/* line 53, ../components/sass/_sass.scss */
+/* line 7, ../components/sass/_vertical.scss */
+.sm-menu-vertical a span.sub-arrow {
+  border-color: transparent transparent transparent #093347;
+  border-style: dashed dashed dashed solid;
+  bottom: auto;
+  left: auto;
+  margin-left: 0;
+  margin-top: -5px;
+  right: 15px;
+  top: 50%; }
+/* line 17, ../components/sass/_vertical.scss */
+.sm-menu-vertical li {
+  border-left: 0;
+  border-top: 1px solid #093347; }
+/* line 21, ../components/sass/_vertical.scss */
 .sm-menu-vertical a.has-submenu {
   padding-right: 23px; }
 
-/* Sub menu indicators
-===================*/
-/* line 61, ../components/sass/_sass.scss */
-.sm-menu a span.sub-arrow {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  margin-top: -8px;
-  width: 16px;
-  height: 16px;
-  line-height: 16px; }
-/* line 70, ../components/sass/_sass.scss */
+/* line 27, ../components/sass/_vertical.scss */
+.sm-menu-vertical a span.sub-arrow,
 .sm-menu ul a span.sub-arrow {
-  right: auto;
-  margin-left: -14px; }
-
-/* line 76, ../components/sass/_sass.scss */
-.sm-menu-vertical a span.sub-arrow {
-  right: auto;
-  margin-left: -14px; }
-
-/* Items separators
-===================*/
-/* line 85, ../components/sass/_sass.scss */
-.sm-menu li {
-  border-left: 1px solid #f3f3f3; }
-  /* line 87, ../components/sass/_sass.scss */
-  .sm-menu li:first-child {
-    border-left: 0; }
-/* line 91, ../components/sass/_sass.scss */
-.sm-menu ul li {
-  border-left: 0;
-  border-top: 1px solid #f3f3f3; }
-
-/* line 97, ../components/sass/_sass.scss */
-.sm-menu-vertical li {
-  border-left: 0;
-  border-top: 1px solid #f3f3f3; }
-
-/* line 102, ../components/sass/_sass.scss */
-.sm-menu ul li:first-child, .sm-menu-vertical li:first-child {
-  border-top: 0; }
-
-/* Scrolling arrows containers for tall sub menus - test sub menu: "Sub test" -> "more..." -> "more..." in the default download package
-===================*/
-/* line 110, ../components/sass/_sass.scss */
-.sm-menu span.scroll-up, .sm-menu span.scroll-down {
-  position: absolute;
-  display: none;
-  visibility: hidden;
-  overflow: hidden;
-  border: solid #bbb;
-  border-width: 1px 0;
-  background: #fff;
-  height: 20px;
-  /* width and position will be automatically set by the script */ }
-/* line 121, ../components/sass/_sass.scss */
-.sm-menu span.scroll-up-arrow {
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  margin-left: -8px;
-  /* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  border-width: 8px;
-  /* tweak size of the arrow */
-  border-style: dashed dashed solid dashed;
-  border-color: transparent transparent #555 transparent; }
-/* line 135, ../components/sass/_sass.scss */
-.sm-menu span.scroll-down-arrow {
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  margin-left: -8px;
-  /* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  border-width: 8px;
-  /* tweak size of the arrow */
-  border-style: dashed dashed solid dashed;
-  border-color: transparent transparent #555 transparent;
-  top: 6px;
-  border-style: solid dashed dashed dashed;
-  border-color: #555 transparent transparent transparent; }
+  border-color: transparent transparent transparent #093347;
+  border-style: dashed dashed dashed solid;
+  bottom: auto;
+  left: auto;
+  margin-left: 0;
+  margin-top: -5px;
+  right: 15px;
+  top: 50%; }
 
 /*
 ---------------------------------------------------------------
@@ -264,11 +253,10 @@ ul.sm {
   These will make the sub menus collapsible when the screen width is too small.
 ---------------------------------------------------------------*/
 @media screen and (max-width: 640px) {
-  /* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
-  /* line 162, ../components/sass/_sass.scss */
+  /* line 10, ../components/sass/_responsive.scss */
   ul.sm-menu {
     width: auto !important; }
-    /* line 164, ../components/sass/_sass.scss */
+    /* line 12, ../components/sass/_responsive.scss */
     ul.sm-menu ul {
       display: none;
       position: static !important;
@@ -279,81 +267,78 @@ ul.sm {
       width: auto !important;
       min-width: 0 !important;
       max-width: none !important; }
-      /* line 174, ../components/sass/_sass.scss */
+      /* line 22, ../components/sass/_responsive.scss */
       ul.sm-menu ul.sm-nowrap > li > a {
         white-space: normal; }
-    /* line 178, ../components/sass/_sass.scss */
+    /* line 26, ../components/sass/_responsive.scss */
     ul.sm-menu > li {
       float: none; }
-      /* line 180, ../components/sass/_sass.scss */
+      /* line 28, ../components/sass/_responsive.scss */
       ul.sm-menu > li > a {
         white-space: normal; }
-    /* line 184, ../components/sass/_sass.scss */
+    /* line 32, ../components/sass/_responsive.scss */
     ul.sm-menu iframe {
       display: none; }
 
-  /* Uncomment this rule to disable completely the sub menus for small screen devices */
-  /*.sm-menu ul, .sm-menu span.sub-arrow, .sm-menu iframe {
-  	display:none !important;
-  }*/
   /* Menu box
   ===================*/
-  /* line 195, ../components/sass/_sass.scss */
+  /* line 47, ../components/sass/_responsive.scss */
   .sm-menu ul {
     border: 0;
-    /* darken the background of the sub menus */
-    background: rgba(100, 100, 100, 0.1);
-    -moz-box-shadow: none;
+    background: #12658a;
     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
     box-shadow: none; }
-  /* line 203, ../components/sass/_sass.scss */
+    /* line 52, ../components/sass/_responsive.scss */
+    .sm-menu ul a span-sub-arrow {
+      border-color: transparent transparent transparent #093347;
+      border-style: dashed dashed dashed solid;
+      bottom: auto;
+      left: auto;
+      margin-left: 0;
+      margin-top: -5px;
+      right: 15px;
+      top: 50%; }
+  /* line 63, ../components/sass/_responsive.scss */
   .sm-menu a {
     padding-top: 13px;
     padding-bottom: 13px;
     background: transparent !important;
-    color: #555 !important; }
-    /* line 208, ../components/sass/_sass.scss */
+    color: #e6e6e6 !important; }
+    /* line 68, ../components/sass/_responsive.scss */
     .sm-menu a.current {
-      background: #555 !important;
-      color: #fff !important; }
-    /* line 212, ../components/sass/_sass.scss */
+      background: #e6e6e6 !important;
+      color: white !important; }
+    /* line 72, ../components/sass/_responsive.scss */
     .sm-menu a.has-submenu {
       padding-right: 23px; }
-  /* line 217, ../components/sass/_sass.scss */
+  /* line 79, ../components/sass/_responsive.scss */
   .sm-menu ul a {
     border-left: 8px solid transparent; }
-  /* line 221, ../components/sass/_sass.scss */
+  /* line 83, ../components/sass/_responsive.scss */
   .sm-menu ul ul a {
     border-left: 16px solid transparent; }
-  /* line 225, ../components/sass/_sass.scss */
+  /* line 87, ../components/sass/_responsive.scss */
   .sm-menu ul ul ul a {
     border-left: 24px solid transparent; }
-  /* line 229, ../components/sass/_sass.scss */
+  /* line 91, ../components/sass/_responsive.scss */
   .sm-menu ul ul ul ul a {
     border-left: 32px solid transparent; }
-  /* line 232, ../components/sass/_sass.scss */
+  /* line 94, ../components/sass/_responsive.scss */
   .sm-menu ul ul ul ul ul a {
     border-left: 40px solid transparent; }
-  /* line 240, ../components/sass/_sass.scss */
+  /* line 103, ../components/sass/_responsive.scss */
   .sm-menu a span.sub-arrow {
     right: auto;
     margin-left: -14px; }
-  /* line 244, ../components/sass/_sass.scss */
+  /* line 107, ../components/sass/_responsive.scss */
   .sm-menu a.highlighted span.sub-arrow {
     display: none !important; }
-  /* line 248, ../components/sass/_sass.scss */
+  /* line 111, ../components/sass/_responsive.scss */
   .sm-menu li {
     border-left: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.05) !important; }
-    /* line 251, ../components/sass/_sass.scss */
+    border-top: 1px solid #0f5474 !important; }
+    /* line 114, ../components/sass/_responsive.scss */
     .sm-menu li:first-child {
-      border-top: 0 !important; }
-
-  /* Menu items
-  ===================*/
-  /* add some text indentation for the 2+ level sub menu items */
-  /* Sub menu indicators
-  ===================*/
-  /* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
-  /* Items separators
-  ===================*/ }
+      border-top: 0 !important; } }

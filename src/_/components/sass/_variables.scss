@@ -1,7 +1,43 @@
 /* Colors
 ===================*/
 
-$background-color : #fff;
-$border-color : #bbb;
+$menu-background-color 	:   #1575A1;
+$menu-font-color		:   #fff;
+$menu-border-color 		: 	darken($menu-background-color, 10%);
 
+// hover
+$hover-background-color	: 	darken($menu-background-color, 10%);
+$hover-color            : 	darken($menu-font-color, 10%);
 
+// current 
+$active-background-color: 	#ddd;
+$active-color 			: 	#fff;
+
+// disabled
+
+// highlighted
+
+// has-submenu
+
+$menu-border-width 		: 	1px;
+$menu-box-shadow		: 	none; // 0 1px 1px rgba(0, 0, 0, 0.2);
+$item-separator-color 	: 	darken($menu-background-color, 20%);
+
+$menu-link-padding-top	: 	14px;
+$menu-link-padding-side	: 	20px;
+
+// fonts
+$font-size				: 	14px;
+$menu-font-family		:	'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Arial,sans-serif;
+
+// submenu
+$submenu-arrow-color 	:	darken($menu-background-color, 20%);
+$submenu-arrow-size  	: 	5px;
+
+// responsive
+$responsive-max-width 	: 	640px;
+$responsive-hide-submenus : false;   // true
+$responsive-submenu-intent : 8px;
+
+// calcs
+$line-height 			: $font-size * 1.2;

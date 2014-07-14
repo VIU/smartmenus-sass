@@ -1,16 +1,7 @@
-/*
-
-@mixin box-shadow  (	$h-shadow : 0px,
-						$v-shadow : 1px,
-						$blur : 1px,
-						$spread: 1px,
-						$color : 'rgba(0, 0, 0, 0.2)',
-						$inset : '') {
-
-  -o-box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
-  -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
-  -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
-  box-shadow: $h-shadow $v-shadow $blur $spread $color $inset;
+// controllers size and position of the submenu arrow
+@mixin arrow-size ($size: 5px) {
+    @if $size > 14px { $size : 14px; }
+    right: 14px - ($size / 2);
+    border-width: $size;
+    bottom: (($line-height + $menu-link-padding-top*2)/2 ) - ($size*1.5) ;
 }
-
-*/
